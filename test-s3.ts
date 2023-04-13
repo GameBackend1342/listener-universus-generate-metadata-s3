@@ -1,4 +1,4 @@
-const handler = require('./src-s3/index.ts');
+const handler = require('./src/index.ts');
 
 handler.handler([
     {
