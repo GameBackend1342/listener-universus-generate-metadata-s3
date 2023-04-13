@@ -1,0 +1,20 @@
+{
+    "name": "listener-universus-generate-metadata",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.312.0",
+        "@sentry/serverless": "^7.47.0",
+        "@universusgame/models": "^1.1.4",
+        "aws-sdk": "^2.1357.0",
+        "dotenv": "^16.0.3",
+        "lodash": "^4.17.21"
+    }
+}

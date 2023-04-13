@@ -1,0 +1,17 @@
+node_modules
+listener-*
+**/*.map
+*.js
+# Ignore node_modules
+**/node_modules
+
+# Ignore any zip files
+*.zip
+dist/factory
+dist/interface
+dist/model
+dist/node_modules
+dist/services
+dist/store
+dist/*.js
+dist/*.map
