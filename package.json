@@ -11,7 +11,7 @@
         "local-test-android": "ts-node tests/android.ts",
         "local-test-spaceship": "ts-node tests/spaceship.ts",
         "local-test-equipment": "ts-node tests/equipment.ts",
-        "local-test-medalion": "ts-node tests/medalion.ts",
+        "local-test-medallion": "ts-node tests/medallion.ts",
         "zip": "echo 'zipping pode demorar' & rimraf ./lambda.zip & zip -r ./lambda.zip dist node_modules package.json .npmrc .env",
         "install-prod": "npx rimraf./node_modules & npm i --omit=dev",
         "restore-deps": "npm i",
