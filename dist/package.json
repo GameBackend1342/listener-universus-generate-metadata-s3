@@ -1,20 +1,48 @@
 {
-    "name": "listener-universus-generate-metadata",
-    "version": "1.0.0",
-    "description": "",
     "main": "index.js",
+    "name": "listener-universus-generate-metadata-s3",
+    "version": "1.0.0",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "node ./esbuild.config.mjs && cp package.json dist/package.json && cd dist && npm i && cd ..",
+        "unit": "jest",
+        "lint": "eslint 'src/**/*.ts' --quiet --fix",
+        "compile": "tsc",
+        "test-s3": "ts-node test-s3.ts",
+        "local-test-android": "ts-node tests/android.ts",
+        "local-test-spaceship": "ts-node tests/spaceship.ts",
+        "local-test-equipment": "ts-node tests/equipment.ts",
+        "local-test-medallion": "ts-node tests/medallion.ts",
+        "zip": "echo 'zipping pode demorar' & rimraf ./lambda.zip & zip -r ./lambda.zip dist node_modules package.json .npmrc .env",
+        "install-prod": "npx rimraf./node_modules & npm i --omit=dev",
+        "restore-deps": "npm i",
+        "lambda": "npm run compile & npm run install-prod & npm run zip & npm run restore-deps"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "@aws-sdk/client-s3": "^3.312.0",
-        "@sentry/serverless": "^7.47.0",
-        "@universusgame/models": "^1.1.4",
-        "aws-sdk": "^2.1357.0",
+        "@aws-sdk/client-s3": "^3.185.0",
+        "@sentry/serverless": "^7.15.0",
+        "@universusgame/models": "^1.1.5",
         "dotenv": "^16.0.3",
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "aws-sdk": "^2.1230.0"
+    },
+    "devDependencies": {
+        "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+        "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+        "@types/jest": "^29.2.0",
+        "@types/lodash": "^4.14.192",
+        "@types/node": "^18.11.4",
+        "@typescript-eslint/eslint-plugin": "^5.10.2",
+        "@typescript-eslint/parser": "^5.10.2",
+        "esbuild": "^0.14.14",
+        "esbuild-jest": "^0.5.0",
+        "eslint": "^8.8.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "files-folder": "^1.0.3",
+        "minify-ts": "^1.0.3",
+        "prettier": "^2.5.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4",
+        "uglify-js": "^3.17.4"
     }
 }
